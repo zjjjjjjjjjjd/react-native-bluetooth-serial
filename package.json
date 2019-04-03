@@ -1,7 +1,7 @@
 {
-  "name": "react-native-bluetooth-serial",
-  "version": "1.0.0-rc1",
-  "description": "'Bluetooth serial for react native'",
+  "name": "react-native-bluetooth-tg",
+  "version": "1.1.0",
+  "description": "'Bluetooth serial for react native, tg fix'",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/rusel1989/react-native-bluetooth-serial/issues"
   },
-  "homepage": "https://github.com/rusel1989/react-native-bluetooth-serial#readme",
+  "homepage": "https://github.com/zjjjjjjjjjjd/react-native-bluetooth-serial#readme",
   "dependencies": {
     "buffer": "^4.6.0"
   },
