@@ -378,7 +378,16 @@ public class RCTBluetoothSerialModule extends ReactContextBaseJavaModule impleme
         int length = mBuffer.length();
         String data = mBuffer.substring(0, length);
         mBuffer.delete(0, length);
-        promise.resolve(data);
+
+        int i = data.indexOf("N.W.:");
+        int j = data.indexOf("g", i);
+        if(i+6 < j-1 ){
+            data = data.substring(i + 6, j - 1);
+            if(data.indexOf("+") ==0 || data.indexOf("-") ==0){
+                promise.resolve(data);
+            }
+        }
+        
     }
 
     @ReactMethod
@@ -598,7 +607,7 @@ public class RCTBluetoothSerialModule extends ReactContextBaseJavaModule impleme
 
                 if (BluetoothDevice.ACTION_BOND_STATE_CHANGED.equals(action)) {
                     final int state = intent.getIntExtra(BluetoothDevice.EXTRA_BOND_STATE, BluetoothDevice.ERROR);
-                    final int prevState	= intent.getIntExtra(BluetoothDevice.EXTRA_PREVIOUS_BOND_STATE, BluetoothDevice.ERROR);
+                    final int prevState = intent.getIntExtra(BluetoothDevice.EXTRA_PREVIOUS_BOND_STATE, BluetoothDevice.ERROR);
 
                     if (state == BluetoothDevice.BOND_BONDED && prevState == BluetoothDevice.BOND_BONDING) {
                         if (D) Log.d(TAG, "Device paired");

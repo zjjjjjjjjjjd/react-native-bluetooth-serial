@@ -214,7 +214,7 @@ class RCTBluetoothSerialService {
             setName("ConnectThread");
 
             // Always cancel discovery because it will slow down a connection
-            mAdapter.cancelDiscovery();
+            // mAdapter.cancelDiscovery();
 
             // Make a connection to the BluetoothSocket
             try {
@@ -234,7 +234,7 @@ class RCTBluetoothSerialService {
                     mmSocket.connect();
                     Log.i(TAG,"Connected");
                 } catch (Exception e2) {
-                    Log.e(TAG, "Couldn't establish a Bluetooth connection.");
+                    Log.d(TAG, "Couldn't establish a Bluetooth connection."+mmDevice);
                     mModule.onError(e2);
                     try {
                         mmSocket.close();
